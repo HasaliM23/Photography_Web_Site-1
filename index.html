@@ -17,6 +17,7 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
 
+
    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <link rel ="stylesheet" href="css/style.css" />
@@ -195,7 +196,7 @@
 
 
 
-<section id="testimonials" class="py-5">
+<section id="testimonials" class="section testimonial-section py-5">
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="card-heading fw-bold text-white">Our Testimonials</h2>
@@ -315,22 +316,96 @@ for these timeless memories.
       
     </div>
 
-    <div class="swiper-pagination mt-4 align-items-center"></div>
+ 
   </div>
+     <div class="swiper-pagination mt-4 align-items-center"></div>
 </section>
 
 <!--End of testinomial part-->
 
 <!--Contact Us Section-->
 
-<section class="section contact-us">
+<section class="section contact-section-bg-light">
+ 
+  <h1>Contact Us</h1>
 
-<h1>Contact Us</h1>
+  <div class="row w-100 rounded-3 overflow-hidden">
+
+    <!-- Left: Image with gradient blend -->
+    <div class="col-md-5 p-0">
+      <div class="contact-image-blend"></div>
+    </div>
+
+      <div class="col-md-7 contact-form-container p-5">
+
+         <h2 class="main-topic mb-2">Get in Touch</h2>
+        <p class=" main-phara mb-4 text-muted">We assure you elegance through excellence. Please feel free to reach us!</p>
+
+      <div class="contact-inline-details mb-4">
+  <span class="icon-circle"><i class="bi bi-envelope"></i></span>
+  <span class="contact-text">contact@aloraphotography.com</span>
+  <span class="divider">|</span>
+  <span class="icon-circle"><i class="bi bi-telephone"></i></span>
+  <span class="contact-text">+94 74 050 0533</span>
+  <span class="divider">|</span>
+  <span class="icon-circle"><i class="bi bi-geo-alt"></i></span>
+  <span class="contact-text">10280, Maharagama, Sri Lanka.</span>
+</div>
+
+        <h6 class="f-title mb-4">Send us a message</h6>
+
+         <form id="contactForm" novalidate>
+            <div class="row mb-3">
+              <div class="col">
+                <input type="text" class="form-control underline-input" id="name" placeholder="Name" required>
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
+              <div class="col">
+                <input type="email" class="form-control underline-input" id="email" placeholder="Email" required>
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control underline-input" id="subject" placeholder="Subject" required>
+              <div class="invalid-feedback">Please enter a subject.</div>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control underline-input" id="message" rows="3" placeholder="Message" required></textarea>
+              <div class="invalid-feedback">Please enter your message.</div>
+            </div>
+            <button type="submit" class="btn btn-success w-100" style="border: none;">Send Message</button>
+            <div id="formAlert" class="mt-3"></div>
+          </form>
+
+
+
+
+      </div>
+
+
+  </div>
 
 
 
 
 </section>
+
+  <!-- Contact Us Section End -->
+
+  <!-- Footer section Start -->
+
+ <footer class="footer-section">
+  <div class="footer-row">
+    <span class="footer-text">© 2025 Alora Photography. All rights reserved.</span>
+    <div class="social-icons">
+      <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="me-3"><i class="bi bi-twitter"></i></a>
+    </div>
+  </div>
+</footer>
+
+  <!-- Footer section End -->
 
 
 
@@ -355,20 +430,39 @@ for these timeless memories.
     });
 
     // Section scroll animation
-   const sections = document.querySelectorAll('.section');
+  const sections = document.querySelectorAll('.section');
 
-  function checkVisibility() {
-    const triggerBottom = window.innerHeight * 0.9;
+function checkVisibility() {
+  const triggerBottom = window.innerHeight * 0.9;
 
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top < triggerBottom && rect.bottom > 100) {
-        section.classList.add('visible');
-      } else {
-        section.classList.remove('visible');
-      }
-    });
-  }
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top < triggerBottom && rect.bottom > 100) {
+      section.classList.add('visible');
+    } else {
+      section.classList.remove('visible');
+    }
+  });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const top = target.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: top,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+
+window.addEventListener('scroll', checkVisibility);
+window.addEventListener('load', checkVisibility);
+
 
   window.addEventListener('scroll', checkVisibility);
   window.addEventListener('load', checkVisibility);
@@ -482,7 +576,7 @@ for these timeless memories.
 
 
 const swiper = new Swiper('.testimonial-swiper', {
-  slidesPerView: 3, // 3 cards always visible (center + 2 sides)
+  slidesPerView: 3,
   centeredSlides: true,
   loop: true,
   spaceBetween: 30,
@@ -494,6 +588,41 @@ const swiper = new Swiper('.testimonial-swiper', {
   autoplay: {
     delay: 3500,
     disableOnInteraction: false
+  },
+  resistance: false,
+  resistanceRatio: 0,
+});
+
+
+
+// Contact form validation and submission
+
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  let form = e.target;
+  let valid = true;
+  form.querySelectorAll('input, textarea').forEach(function (input) {
+    if (!input.value.trim()) {
+      input.classList.add('is-invalid');
+      valid = false;
+    } else {
+      input.classList.remove('is-invalid');
+    }
+    if (input.type === 'email' && input.value) {
+      // Simple email regex
+      const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      if (!emailPattern.test(input.value)) {
+        input.classList.add('is-invalid');
+        valid = false;
+      }
+    }
+  });
+  let alertBox = document.getElementById('formAlert');
+  if (valid) {
+    alertBox.innerHTML = '<div class="alert alert-success">Thank you! Your message has been sent.</div>';
+    form.reset();
+  } else {
+    alertBox.innerHTML = '';
   }
 });
 
