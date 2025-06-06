@@ -20,6 +20,11 @@
   --contact-form-bg: #fff;
   --contact-form-text: #222;
   --contact-form-input-bg: transparent;
+  --footer-bg: #c8e3d2;
+  --footer-text: #333;
+  --footer-border: #e9ecef;
+  --footer-icon: #333;
+  --footer-icon-hover: #c8e3d2;
     }
 
 :root, html, body {
@@ -404,6 +409,7 @@ body {
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
+
     }
 
     @keyframes fadeSlideUp {
@@ -459,6 +465,11 @@ body {
   --contact-form-bg: #181a1b;
   --contact-form-text: #f8f9fa;
   --contact-form-input-bg: transparent;
+  --footer-bg: #181a1b;
+  --footer-text: #f8f9fa;
+  --footer-border: #222;
+  --footer-icon: #f8f9fa;
+  --footer-icon-hover: #c8e3d2;
      
     }
     [data-theme="dark"] .hero-section,
@@ -977,17 +988,17 @@ h5 {
   align-items: center;
   gap: 24px;
   padding: 20px 0;
-  background: #f8f9fa;
-  border-top: 1px solid #e9ecef;
+  background: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
 }
 
 .footer-text {
-  color: #333;
+  color: var(--footer-text);
   font-size: 16px;
 }
 
 .social-icons a {
-  color: #333;
+  color: var(--footer-icon);
   font-size: 20px;
   margin: 0 6px;
   transition: color 0.2s;
@@ -995,7 +1006,7 @@ h5 {
 }
 
 .social-icons a:hover {
-  color: #c8e3d2;
+  color: var(--footer-icon-hover);
 }
 
 
