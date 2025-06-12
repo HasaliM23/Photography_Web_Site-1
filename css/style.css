@@ -821,8 +821,6 @@ h5 {
 }
 
 
-
-
 .f-title{
   font-size: 1.5rem;
   font-weight: 400;
@@ -902,7 +900,7 @@ h5 {
 .contact-inline-details {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap !important;
   gap: 12px;
   font-size: 15px;
   font-family: 'Poppins', sans-serif;
@@ -923,14 +921,14 @@ h5 {
 }
 
 .contact-inline-details .divider {
-  margin: 0 8px;
+  margin-left: auto;
   color: var(--contact-divider);
   font-weight: bold;
   font-size: 18px;
 }
 
 .contact-inline-details .contact-text {
-  margin-right: 2px;
+  margin-right: -30px;
 }
 
 .contact-form-container {
@@ -958,7 +956,7 @@ h5 {
   min-height: 550px;
 }
 
-
+/*
 @media (max-width: 576px) {
   .contact-image-blend {
     height: 300px;
@@ -983,7 +981,7 @@ h5 {
 
   }
 
-}
+} */
 
 
 /* footer */
@@ -1022,25 +1020,6 @@ h5 {
 }
 
 
-
-.section { padding: 40px 10px; }
-.section h1 { font-size: 1.5rem; }
-.section p { font-size: 14px; }
-
-.gallery img { width: 100%; height: auto; }
-
-.footer-row { flex-direction: column; gap: 8px; }
-
-@media (min-width: 768px) {
-  .section { padding: 60px 20px; }
-  .section h1 { font-size: 2rem; }
-  .footer-row { flex-direction: row; gap: 24px; }
-}
-
-@media (min-width: 1200px) {
-  .section { padding: 80px 40px; }
-  .section h1 { font-size: 2.5rem; }
-}
 
 
 
