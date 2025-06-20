@@ -155,10 +155,10 @@ window.addEventListener('load', checkVisibility);
 
 
 const swiper = new Swiper('.testimonial-swiper', {
-  slidesPerView: 3,
-  centeredSlides: true,
+  slidesPerView: 1, // Default: Only 1 slide on smallest screens
+  centeredSlides: false,
   loop: true,
-  spaceBetween: 30,
+  spaceBetween: 20,
   grabCursor: true,
   pagination: {
     el: '.swiper-pagination',
@@ -168,10 +168,19 @@ const swiper = new Swiper('.testimonial-swiper', {
     delay: 3500,
     disableOnInteraction: false
   },
-  resistance: false,
-  resistanceRatio: 0,
+  breakpoints: {
+    576: {
+      slidesPerView: 2, // ≥576px: 2 slides
+      spaceBetween: 20,
+      centeredSlides: false
+    },
+    992: {
+      slidesPerView: 3, // ≥992px: 3 slides
+      spaceBetween: 30,
+      centeredSlides: true
+    }
+  }
 });
-
 
 
 // Contact form validation and submission
